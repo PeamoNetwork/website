@@ -59,7 +59,7 @@ router.get('/', requireLoginMiddleware, async (request, response) => {
 		try {
 			renderData.discordUser = await discordRest.get(DiscordRoutes.user(account.connections.discord.id));
 		} catch (error) {
-			response.cookie('error_message', error.message, { domain: '.pretendo.network' });
+			response.cookie('error_message', error.message, { domain: '.ixchats.com' }); // Kinda weird but it'll set it across all subdomains
 		}
 	} else {
 		// If no Discord account linked, generate an auth URL
