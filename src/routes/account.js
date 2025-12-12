@@ -109,9 +109,9 @@ router.get('/register', async (request, response) => {
 		error: request.cookies.error_message
 	};
 
-	response.clearCookie('email', { domain: '.pretendo.network' });
-	response.clearCookie('username', { domain: '.pretendo.network' });
-	response.clearCookie('mii_name', { domain: '.pretendo.network' });
+	response.clearCookie('email', { domain: '.ixchats.com });
+	response.clearCookie('username', { domain: '.ixchats.com' });
+	response.clearCookie('mii_name', { domain: '.ixchats.com' });
 
 	response.render('account/register', renderData);
 });
@@ -125,9 +125,9 @@ router.post('/register', async (request, response) => {
 	// * and no data is stored for blocked users
 	const ip = request.ip; // TODO - Enable `CF-IPCountry` in Cloudflare and only use this as a fallback
 
-	response.cookie('email', email, { domain: '.pretendo.network' });
-	response.cookie('username', username, { domain: '.pretendo.network' });
-	response.cookie('mii_name', mii_name, { domain: '.pretendo.network' });
+	response.cookie('email', email, { domain: '.ixchats.com' });
+	response.cookie('username', username, { domain: '.ixchats.com' });
+	response.cookie('mii_name', mii_name, { domain: '.ixchats.com' });
 
 	try {
 		const tokens = await util.register({
@@ -145,9 +145,9 @@ router.post('/register', async (request, response) => {
 		response.cookie('access_token', tokens.access_token, { domain: '.pretendo.network' });
 		response.cookie('token_type', tokens.token_type, { domain: '.pretendo.network' });
 
-		response.clearCookie('email', { domain: '.pretendo.network' });
-		response.clearCookie('username', { domain: '.pretendo.network' });
-		response.clearCookie('mii_name', { domain: '.pretendo.network' });
+		response.clearCookie('email', { domain: '.ixchats.com' });
+		response.clearCookie('username', { domain: '.ixchats.com' });
+		response.clearCookie('mii_name', { domain: '.ixchats.com' });
 
 		response.redirect(request.redirect || '/account');
 	} catch (error) {
@@ -157,9 +157,9 @@ router.post('/register', async (request, response) => {
 });
 
 router.get('/logout', async (_request, response) => {
-	response.clearCookie('refresh_token', { domain: '.pretendo.network' });
-	response.clearCookie('access_token', { domain: '.pretendo.network' });
-	response.clearCookie('token_type', { domain: '.pretendo.network' });
+	response.clearCookie('refresh_token', { domain: '.ixchats.com' });
+	response.clearCookie('access_token', { domain: '.ixchats.com' });
+	response.clearCookie('token_type', { domain: '.ixchats.com' });
 
 	response.redirect('/');
 });
@@ -171,7 +171,7 @@ router.get('/forgot-password', async (request, response) => {
 		error_message: request.cookies.error_message
 	};
 
-	response.clearCookie('input', { domain: '.pretendo.network' });
+	response.clearCookie('input', { domain: '.ixchats.com' });
 
 	response.render('account/forgot-password', renderData);
 });
@@ -187,9 +187,9 @@ router.post('/forgot-password', async (request, response) => {
 			hCaptchaResponse
 		});
 
-		response.clearCookie('input', { domain: '.pretendo.network' });
+		response.clearCookie('input', { domain: '.ixchats.com' });
 
-		response.cookie('success_message', 'An email has been sent.', { domain: '.pretendo.network' });
+		response.cookie('success_message', 'An email has been sent.', { domain: '.ixchats.com' });
 
 		response.redirect(request.redirect || '/account/forgot-password');
 	} catch (error) {
@@ -217,7 +217,7 @@ router.get('/connect/discord', requireLoginMiddleware, async (request, response)
 			grantType: 'authorization_code'
 		});
 	} catch {
-		response.cookie('error_message', 'Invalid Discord authorization code. Please try again', { domain: '.pretendo.network' });
+		response.cookie('error_message', 'Invalid Discord authorization code. Please try again', { domain: '.ixchats.com' });
 		return response.redirect('/account');
 	}
 
@@ -242,7 +242,7 @@ router.get('/connect/discord', requireLoginMiddleware, async (request, response)
 			}
 		}
 
-		response.cookie('success_message', 'Discord account linked successfully', { domain: '.pretendo.network' });
+		response.cookie('success_message', 'Discord account linked successfully', { domain: '.ixchats.com' });
 		return response.redirect('/account');
 	} catch (error) {
 		response.cookie('error_message', error.message, { domain: '.pretendo.network' });
@@ -271,7 +271,7 @@ router.get('/remove/discord', requireLoginMiddleware, async (request, response) 
 			}
 		}
 
-		response.cookie('success_message', 'Discord account removed successfully', { domain: '.pretendo.network' });
+		response.cookie('success_message', 'Discord account removed successfully', { domain: '.ixchats.com' });
 		return response.redirect('/account');
 	} catch (error) {
 		response.cookie('error_message', error.message, { domain: '.pretendo.network' });
@@ -419,7 +419,7 @@ router.post('/stripe/unsubscribe', requireLoginMiddleware, async (request, respo
 		} catch (error) {
 			logger.error(`Error canceling old user subscription | ${pnid.get('connections.stripe.customer_id')}, ${pid}, ${subscriptionId} | - ${error.message}`);
 
-			response.cookie('error_message', 'Error canceling subscription! Contact support if issue persists', { domain: '.pretendo.network' });
+			response.cookie('error_message', 'Error canceling subscription! Contact support if issue persists', { domain: '.ixchats.com' });
 
 			return response.redirect('/account');
 		}
