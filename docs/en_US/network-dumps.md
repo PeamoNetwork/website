@@ -15,7 +15,7 @@ In order to make this easier, we have developed a suite of internal tools to cap
 
 <div class="tip red">
 	<h2>Security Warning</h2>
-	<strong>Network dumps will oftentimes have sensitive information, including emails, passwords, usernames, IP addresses, etc. Because of this, ensure you only provide network dumps to trusted individuals. When submitting network dumps to Pretendo Network developers your dumps are uploaded and stored in a private channel. This channel can only be accessed by a small number of people, not even all developers have access.</strong>
+	<strong>Network dumps will oftentimes have sensitive information, including emails, passwords, usernames, IP addresses, etc. Because of this, ensure you only provide network dumps to trusted individuals. When submitting network dumps to Peamo Network developers your dumps are uploaded and stored in a private channel. This channel can only be accessed by a small number of people, not even all developers have access.</strong>
 </div>
 
 # Submissions
@@ -31,16 +31,16 @@ When submitting we ask that you do the following:
 Game packet dumps are the packets sent during a session to a game server. These packets are typically encrypted, so additional data will need to be submitted in order for us to decrypt them. There are several ways to dump these packets and the data needed to decrypt them.
 
 ### Wii U (HokakuCafe)
-The easiest way to dump game server packets from a Wii U is to use [HokakuCafe](https://github.com/PretendoNetwork/HokakuCafe). This is an Aroma setup module which patches IOSU to write all network frames to a `.pcap` file on the SD card.
+The easiest way to dump game server packets from a Wii U is to use [HokakuCafe](https://github.com/PeamoNetwork/HokakuCafe). This is an Aroma setup module which patches IOSU to write all network frames to a `.pcap` file on the SD card.
 
-To use HokakuCafe download the [latest release](https://github.com/PretendoNetwork/HokakuCafe/releases/latest) setup module (`30_hokaku_cafe.rpx`). Place this file on the SD card at `wiiu/environments/[ENVIRONMENT]/modules/setup` and insert it back into the Wii U. Start your Wii U once, turn it off, and open the newly created `HokakuCafe/config.ini` file on the SD card. Set `Mode` to either `UDP` or `ALL`. At the time of writing, HokakuCafe has a bug where it will not dump all game packets when `Mode` is set to `PRUDP`. Insert the SD card back into the Wii U and all network traffic flowing through your console should be written to a PCAP.
+To use HokakuCafe download the [latest release](https://github.com/PeamoNetwork/HokakuCafe/releases/latest) setup module (`30_hokaku_cafe.rpx`). Place this file on the SD card at `wiiu/environments/[ENVIRONMENT]/modules/setup` and insert it back into the Wii U. Start your Wii U once, turn it off, and open the newly created `HokakuCafe/config.ini` file on the SD card. Set `Mode` to either `UDP` or `ALL`. At the time of writing, HokakuCafe has a bug where it will not dump all game packets when `Mode` is set to `PRUDP`. Insert the SD card back into the Wii U and all network traffic flowing through your console should be written to a PCAP.
 
 The PCAP files are written to the `HokakuCafe` folder on the SD card, named as the date and time the session was started. HokakuCafe will also dump a BIN file, named `nexServiceToken-AAAAAAAAAA-BBBBBBBB.bin`. This file contains the data needed to decrypt the session packets, and MUST also be submitted. Otherwise the PCAP packets cannot be decrypted, and are of no use.
 
 ### 3DS (HokakuCTR)
-The easiest way to dump game server packets from a 3DS is to use [HokakuCTR](https://github.com/PretendoNetwork/HokakuCTR). Like HokakuCafe this homebrew attempts to dump game traffic directly from the console. However unlike HokakuCafe, it does not dump all system traffic and may not work in all games. If HokakuCTR does not work in your game, see the last solution.
+The easiest way to dump game server packets from a 3DS is to use [HokakuCTR](https://github.com/PeamoNetwork/HokakuCTR). Like HokakuCafe this homebrew attempts to dump game traffic directly from the console. However unlike HokakuCafe, it does not dump all system traffic and may not work in all games. If HokakuCTR does not work in your game, see the last solution.
 
-To use HokakuCTR, ensure you are updated to the latest Luma release. The latest Luma release now supports 3GX plugins. Download the [latest release](https://github.com/PretendoNetwork/HokakuCTR/releases/latest). Place this file on the SD card at `luma/plugins` and rename it `default.3gx`.
+To use HokakuCTR, ensure you are updated to the latest Luma release. The latest Luma release now supports 3GX plugins. Download the [latest release](https://github.com/PeamoNetwork/HokakuCTR/releases/latest). Place this file on the SD card at `luma/plugins` and rename it `default.3gx`.
 
 When launching a game you will see 1 of 2 notifications on screen. You will either see `Not Ready` or `Ready`. If you see `Not Ready`, your game is not compatible. If you see `Ready`, your game is compatible but has not necessarily started sending data. If you see nothing, either your game is not compatible, the plugin loader is disabled or the plugin is not installed. You can check if the plugin loader is disabled by opening the Rosalina menu (L + D-Pad down + Select) and ensure the "Plugin Loader" option is enabled. If your game is compatible, it will start dumping game traffic to a PCAP file once the game has connected to the server and begun sending data. You will know the game has connected to the server when you see either `Detected NEX buffer type: V0` or `Detected NEX buffer type: V1` on screen. These notifications indicate that the game has begun sending data. If you do not see one of these notifications, no data will be in your dump.
 
@@ -55,7 +55,7 @@ Just like with HokakuCafe, traffic dumped with WireShark will be encrypted. In o
 - Wii U - To dump your NEX username and password from a Wii U connect to your Wii U with an FTP client. Navigate to `/storage_mlc/usr/save/system/act` and download all the folders inside this folder. Check the `account.dat` file in each folder and look for your NNID username in the `AccountId` field. Once found, in the same `account.dat` file locate both the `PrincipalId` and `NfsPassword` fields. `PrincipalId` is your NEX username (PID), and `NfsPassword` is your NEX password.
 
 # HTTP Packets
-Some games use HTTP requests for some features. Additionally, non-game titles will often use HTTP requests for their services. SpotPass data is also downloaded via HTTP requests. The above methods will not always capture HTTP requests in a way that is usable, if at all. For this, an HTTP proxy server is required. There are several options for HTTP proxy servers, however the simplest way is using our [mitmproxy Docker container](https://github.com/PretendoNetwork/mitmproxy-nintendo).
+Some games use HTTP requests for some features. Additionally, non-game titles will often use HTTP requests for their services. SpotPass data is also downloaded via HTTP requests. The above methods will not always capture HTTP requests in a way that is usable, if at all. For this, an HTTP proxy server is required. There are several options for HTTP proxy servers, however the simplest way is using our [mitmproxy Docker container](https://github.com/PeamoNetwork/mitmproxy-nintendo).
 
 Full credit to the upkeep of the repository, and creation of the original Docker container, goes to GitHub user [MatthewL246](https://github.com/MatthewL246).
 
@@ -67,7 +67,7 @@ Full credit to the upkeep of the repository, and creation of the original Docker
 Install Docker for your operating system using the official [setup guide](https://docs.docker.com/get-docker/). If installing on Windows, you ***MUST*** use the WSL backend option. Then follow the steps for your console type.
 
 ## 3DS
-1. Download [this IPS patch](https://github.com/PretendoNetwork/mitmproxy-nintendo/raw/master/ssl-patches/0004013000002F02.ips). This IPS patch patches the SSL sysmodule to disable SSL verification, allowing the console to connect to the proxy server with TLS connections.
+1. Download [this IPS patch](https://github.com/PeamoNetwork/mitmproxy-nintendo/raw/master/ssl-patches/0004013000002F02.ips). This IPS patch patches the SSL sysmodule to disable SSL verification, allowing the console to connect to the proxy server with TLS connections.
 2. Place the patch on your SD card at `SD:/luma/sysmodules/0004013000002F02.ips`.
 3. Place the SD card back into your 3DS.
 4. Launch into the Luma settings by holding `SELECT` while powering on.
@@ -75,8 +75,8 @@ Install Docker for your operating system using the official [setup guide](https:
 6. Launch Nimbus and connect to Nintendo Network.
 7. On your computer, open a command prompt and run the following commands:
 8. `mkdir 3ds-dumps`
-9. `docker run -it --rm -p 8083:8083 -v ./3ds-dumps:/home/mitmproxy/dumps ghcr.io/pretendonetwork/mitmproxy-nintendo:3ds mitmdump`
-	- If using Windows, run `wsl docker run -it --rm -p 8083:8083 -v ./3ds-dumps:/home/mitmproxy/dumps ghcr.io/pretendonetwork/mitmproxy-nintendo:3ds mitmdump`
+9. `docker run -it --rm -p 8083:8083 -v ./3ds-dumps:/home/mitmproxy/dumps ghcr.io/Peamonetwork/mitmproxy-nintendo:3ds mitmdump`
+	- If using Windows, run `wsl docker run -it --rm -p 8083:8083 -v ./3ds-dumps:/home/mitmproxy/dumps ghcr.io/Peamonetwork/mitmproxy-nintendo:3ds mitmdump`
 10. These commands create a directory to store the sessions dumps, and starts the proxy server using Docker, exposing the servers port 8083 on your computers port also on 8083, and links the `/home/mitmproxy/dumps` directory in the container to the `3ds-dumps` directory you just created.
 11. On your 3DS, launch into Internet Settings and select your connection.
 12. Select `Change Settings > Proxy Settings`.
@@ -86,15 +86,15 @@ Install Docker for your operating system using the official [setup guide](https:
 16. See the end of this section for final steps.
 
 ## Wii U
-1. Download [this Aroma setup module](https://github.com/PretendoNetwork/mitmproxy-nintendo/raw/master/ssl-patches/30_nossl.rpx). This patches the SSL sysmodule to disable SSL verification, allowing the console to connect to the proxy server with TLS connections.
+1. Download [this Aroma setup module](https://github.com/PeamoNetwork/mitmproxy-nintendo/raw/master/ssl-patches/30_nossl.rpx). This patches the SSL sysmodule to disable SSL verification, allowing the console to connect to the proxy server with TLS connections.
 2. Place the patch on your SD card at `SD:/wiiu/environments/aroma/modules/setup/30_nossl.rpx`. If there are other patches with the same ID `30`, this is fine.
 3. Place the SD card back into your Wii U and turn on the console.
 4. Launch into the Aroma settings by pressing `L + DPAD-DOWN + SELECT`.
-5. Enter `Inkay > Patching` and toggle `Connect to the Pretendo Network` to ***FALSE***.
+5. Enter `Inkay > Patching` and toggle `Connect to the Peamo Network` to ***FALSE***.
 6. On your computer, open a command prompt and run the following commands:
 7. `mkdir wiiu-dumps`
-8. `docker run -it --rm -p 8082:8082 -v ./wiiu-dumps:/home/mitmproxy/dumps ghcr.io/pretendonetwork/mitmproxy-nintendo:wiiu mitmdump`
-	- If using Windows, run `wsl docker run -it --rm -p 8082:8082 -v ./wiiu-dumps:/home/mitmproxy/dumps ghcr.io/pretendonetwork/mitmproxy-nintendo:wiiu mitmdump`
+8. `docker run -it --rm -p 8082:8082 -v ./wiiu-dumps:/home/mitmproxy/dumps ghcr.io/Peamonetwork/mitmproxy-nintendo:wiiu mitmdump`
+	- If using Windows, run `wsl docker run -it --rm -p 8082:8082 -v ./wiiu-dumps:/home/mitmproxy/dumps ghcr.io/Peamonetwork/mitmproxy-nintendo:wiiu mitmdump`
 9. These commands create a directory to store the sessions dumps, and starts the proxy server using Docker, exposing the servers port 8082 on your computers port also on 8082, and links the `/home/mitmproxy/dumps` directory in the container to the `wiiu-dumps` directory you just created.
 10. On your Wii U, launch into `System Settings > Internet > Connect to the Internet > Connections` and select your connection.
 11. Select `Change Settings > Proxy Settings`.
@@ -106,7 +106,7 @@ Install Docker for your operating system using the official [setup guide](https:
 ## Final Steps
 Once you have the proxy server running and your console connected to it, use the console as normal. When you are finished capturing a session, press `CTRL` and `C` in the command prompt running the proxy server to end the session. Ending a session will create a `wiiu-dumps/wiiu-latest.har` file or `3ds-dumps/3ds-latest.har` file depending on which console was used for the session. These files will be overwritten at the start of each new session, so they must be backed up or renamed to avoid losing their data.
 
-For advanced usage of the proxy server, see https://github.com/PretendoNetwork/mitmproxy-nintendo
+For advanced usage of the proxy server, see https://github.com/PeamoNetwork/mitmproxy-nintendo
 
 # SpotPass
 SpotPass data, also called BOSS content, is sent using HTTP. The easiest way to submit SpotPass information to us is by dumping your consoles BOSS database. These databases contain SpotPass information for all games which you have enabled SpotPass for. This will give us the data needed to archive SpotPass content ourselves. Alternatively, you may submit [HTTP network dumps](#http-packets). Submitting HTTP network dumps gives us the SpotPass content as well, but requires more work on users.
