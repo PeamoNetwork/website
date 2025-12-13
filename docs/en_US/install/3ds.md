@@ -2,7 +2,7 @@
 
 <div class="tip red">
 	<strong>CAUTION:</strong>
-	DON'T REMOVE YOUR NNID TO SET UP PRETENDO NETWORK, IT'S NOT NECESSARY AND BY DOING SO YOU WILL LOSE BADGES, REDOWNLOADABLE GAMES, THEMES AND POKÉMON BANK DATA!
+	DON'T REMOVE YOUR NNID TO SET UP PEAMO NETWORK, IT'S NOT NECESSARY AND BY DOING SO YOU WILL LOSE BADGES, REDOWNLOADABLE GAMES, THEMES AND POKÉMON BANK DATA!
 </div>
 
 <div class="tip red">
@@ -67,7 +67,7 @@ Insert your SD card back into your console.
 ℹ️ <b>Skip this step if you've already enabled the required patches on your console for Pretendo Network.</b>
 </div>
 
-In order to make use of the Pretendo Network service, you will need to enable Luma patches on your console. Hold the `SELECT` button on your 3DS and power it on.
+In order to make use of the Peamo Network service, you will need to enable Luma patches on your console. Hold the `SELECT` button on your 3DS and power it on.
 
 On the screen that is displayed, make sure that these following options are enabled:
 
@@ -90,7 +90,7 @@ Once it has finished installing, press the HOME button and exit FBI. You should 
 
 ## Using Nimbus
 
-Depending on how you installed Nimbus, launch it either through the Homebrew Launcher or the 3DS HOME Menu. Select either `Pretendo` or `Nintendo` to swap between services.
+Depending on how you installed Nimbus, launch it either through the Homebrew Launcher or the 3DS HOME Menu. Select either `Peamo` or `Nintendo` to swap between services.
 
 Your selection persists between reboots.
 
@@ -104,14 +104,14 @@ It is recommended to register the PNID on your device at this time, as registeri
 
 <div class="tip red">
 	<strong>CAUTION:</strong>
-	A Pretendo Network ID may not use the same username as the account already linked to your 3DS! Ensure that you have chosen a different name for your PNID than the name on your NNID.
+	A Peamo Network ID may not use the same username as the account already linked to your 3DS! Ensure that you have chosen a different name for your PNID than the name on your NNID.
 </div>
 
 ## Other information
 
 ### How does Nimbus work?
 
-Nimbus will create a 2nd local account set to the `test` NASC environment. The IPS patches will set the `test` NASC environment URLs to point to Pretendo. You may freely switch between Pretendo and Nintendo. Your selected mode will persist between reboots.
+Nimbus will create a 2nd local account set to the `test` NASC environment. The IPS patches will set the `test` NASC environment URLs to point to Peamo. You may freely switch between Peamo and Nintendo. Your selected mode will persist between reboots.
 
 ### 2nd local account?
 
