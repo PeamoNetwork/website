@@ -2,10 +2,10 @@
 
 <div class="tip red">
 	<strong>CAUTION:</strong>
-	DON'T REMOVE YOUR NNID TO SET UP PRETENDO NETWORK, IT'S NOT NECESSARY AND BY DOING SO YOU WILL LOSE ALL YOUR PREVIOUSLY PURCHASED GAMES AND WILL BE UNABLE TO UPDATE THEM!</strong>
+	DON'T REMOVE YOUR NNID TO SET UP PEAMO NETWORK, IT'S NOT NECESSARY AND BY DOING SO YOU WILL LOSE ALL YOUR PREVIOUSLY PURCHASED GAMES AND WILL BE UNABLE TO UPDATE THEM!</strong>
 </div>
 
-You can connect your Wii U to Pretendo using one of 2 methods. Inkay is recommended unless you have some reason to avoid modding your console (e.g. you live in Japan where is is legally gray).
+You can connect your Wii U to Peamo using one of 2 methods. Inkay is recommended unless you have some reason to avoid modding your console (e.g. you live in Japan where is is legally gray).
 
 - [Inkay (homebrew - recommended)](#inkay)
 - [SSSL (hackless)](#sssl)
@@ -63,7 +63,7 @@ Wait for the installation to complete, then press A to restart your console.
 
 <img src="/assets/images/docs/install/wiiu/aroma/aroma-updater-done.png" alt="A confirmation dialog. The console will now restart." width="100%">
 
-Once the console restarts, you'll see a notification in the top-left informing you that Pretendo will be used. The notification disappears after a few moments.
+Once the console restarts, you'll see a notification in the top-left informing you that Peamo will be used. The notification disappears after a few moments.
 
 <img src="/assets/images/docs/install/wiiu/aroma/pretendo-notification.webp" alt="The Wii U user selection screen, with 'Using Pretendo Network' overlaid in the top-left" width="100%">
 
@@ -147,11 +147,11 @@ To disconnect from Pretendo Network (e.g. to access the Nintendo eShop) repeat t
 
 # PNID Setup
 
-After installing Pretendo, you must register a Pretendo Network ID (PNID). There is currently two ways of creating a PNID: Creating an account with the website and linking it, or creating it on your Wii U.
+After installing Peamo, you must register a Peamo Network ID (PNID). There is currently two ways of creating a PNID: Creating an account with the website and linking it, or creating it on your Wii U.
 
 <div class="tip red">
 	<strong>CAUTION:</strong>
-	A Pretendo Network ID may not use the same username as an account already linked to your Wii U! Ensure that you have chosen a different name for your PNID than the name on your NNID.
+	A Peamo Network ID may not use the same username as an account already linked to your Wii U! Ensure that you have chosen a different name for your PNID than the name on your NNID.
 </div>
 
 ### Website
@@ -171,7 +171,7 @@ Your PNID is now set up and ready to use. You may continue reading to learn abou
 
 ### Wii U
 
-Create the Pretendo Network ID as you would a Nintendo Network ID.
+Create the Peamo Network ID as you would a Nintendo Network ID.
 
 # Using Inkay
 
@@ -265,14 +265,14 @@ Once the backup has completed, press the `B` button to return to the games menu.
 
 Select the backup slot you just backed the save data up to.
 
-Select the profile to restore the save data to. This should be your **_Pretendo_** Network ID.
+Select the profile to restore the save data to. This should be your **_Peamo_** Network ID.
 
 <img src="/assets/images/docs/install/wiiu/savedatabackup/savemii-transfer.webp" alt="SaveMii restore save data menu" width="100%">
 
-When ready, press the `A` button to transfer your data. Press `A` again to confirm your actions. If you get a message about backing up your data on your Pretendo profile, ignore. Your screen may briefly flash as the data is copied over.
+When ready, press the `A` button to transfer your data. Press `A` again to confirm your actions. If you get a message about backing up your data on your Peamo profile, ignore. Your screen may briefly flash as the data is copied over.
 
-Once completed, exit SaveMii and ensure the game you transferred works properly on your Pretendo profile.
+Once completed, exit SaveMii and ensure the game you transferred works properly on your Peamo profile.
 
 <img src="/assets/images/docs/install/wiiu/savedatabackup/savemii-saveworkingonpretendo.webp" alt="Screenshot of a game that loaded successfully" width="100%">
 
-Repeat this process for any other save data you'd like to transfer to your Pretendo profile.
+Repeat this process for any other save data you'd like to transfer to your Peamo profile.
